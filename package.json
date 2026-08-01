@@ -1,0 +1,33 @@
+{
+  "name": "family-first-insurance",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@imgly/background-removal-node": "^1.4.5",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.511.0",
+    "react": "^19.2.8",
+    "react-countup": "^6.5.3",
+    "react-dom": "^19.2.8",
+    "react-scroll": "^1.9.0",
+    "swiper": "^11.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/react-scroll": "^1.8.10",
+    "@vitejs/plugin-react": "^6.0.4",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3",
+    "vite": "^8.2.0"
+  }
+}
