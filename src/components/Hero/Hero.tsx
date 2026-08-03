@@ -47,7 +47,7 @@ const slides = [
       <>Secure Your Child's <span className="text-amber-600">Dream Education</span> Before Tomorrow Arrives</>
     ),
     description: "Don't let inflation steal your child's future. Our Education Planning Insurance ensures your child reaches their dream college — no matter what life brings.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: `${import.meta.env.BASE_URL}education_planning_consultation.png`,
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const slides = [
       <>Start Early, Build a <span className="text-amber-600">Massive Corpus</span> For Their Future</>
     ),
     description: "Harness the power of compounding. Small, disciplined investments today can create a multi-crore fund for your child's higher education and marriage.",
-    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: `${import.meta.env.BASE_URL}wealth_creation_piggybank.png`,
   },
   {
     id: 3,
@@ -65,7 +65,7 @@ const slides = [
       <>Zero Market Risk, <span className="text-amber-600">Guaranteed Returns</span> & Protection</>
     ),
     description: "Sleep peacefully knowing your child's education fund is 100% safe from market volatility, backed by IRDAI approved guaranteed return plans.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image: `${import.meta.env.BASE_URL}secure_future_graduation.png`,
   }
 ];
 
@@ -181,8 +181,8 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
           </div>
 
           {/* RIGHT: Professional Framed Image Area */}
-          <div className="relative w-full h-[400px] lg:h-[550px] w-full flex justify-center lg:justify-end items-center">
-            <div className="relative w-full h-full max-w-lg lg:max-w-xl">
+          <div className="relative w-full h-[500px] lg:h-[700px] w-full flex justify-center lg:justify-end items-center">
+            <div className="relative w-full h-full max-w-lg lg:max-w-[650px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
@@ -202,6 +202,7 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
             </div>
           </div>
 
+        </div>
       </div>
     </section>
   );
