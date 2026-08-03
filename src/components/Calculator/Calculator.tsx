@@ -364,7 +364,7 @@ const Calculator = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                         { value: Math.min(result.totalInvested, result.futureCost), max: result.futureCost, color: '#10b981', label: fmt(result.totalInvested), sublabel: 'Invested' },
                         { value: result.maturityAmount, max: result.futureCost, color: '#8b5cf6', label: `${result.multipler.toFixed(1)}x`, sublabel: 'Returns' },
                       ].map((ring, i) => (
-                        <div key={i} className="bg-slate-900/50 p-2 rounded-2xl shadow-inner shadow-black/50">
+                        <div key={i} className="bg-white p-2 rounded-2xl shadow-lg border border-slate-100">
                           <RingProgress value={ring.value} max={ring.max} size={84} color={ring.color} label={ring.label} sublabel={ring.sublabel} />
                         </div>
                       ))}
