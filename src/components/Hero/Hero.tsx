@@ -83,11 +83,11 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <section id="hero" className="relative bg-[#fffdf0] overflow-hidden pt-32 pb-16">
+    <section id="hero" className="relative bg-[#fffdf0] overflow-hidden pt-32 pb-12">
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* LEFT: Content Area */}
           <div className="flex flex-col items-start text-left w-full">
@@ -116,19 +116,19 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                   </p>
 
                   {/* Buttons */}
-                  <div className="flex flex-wrap gap-4 mb-10">
+                  <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto">
                     <motion.button
                       onClick={onOpenModal}
-                      className="px-8 py-4 rounded-xl font-bold text-lg text-white bg-gradient-to-r from-amber-400 to-amber-600 shadow-md shadow-amber-500/20 hover:from-amber-500 hover:to-amber-700 transition-all flex items-center gap-2"
+                      className="w-full sm:w-auto justify-center px-6 py-3 rounded-xl font-bold text-base text-white bg-gradient-to-r from-amber-400 to-amber-600 shadow-md shadow-amber-500/20 hover:from-amber-500 hover:to-amber-700 transition-all flex items-center gap-2"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       Book Free Consultation
                       <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
                     </motion.button>
-                    <Link to="calculator" smooth duration={500}>
+                    <Link to="calculator" smooth duration={500} className="w-full sm:w-auto">
                       <motion.button
-                        className="px-8 py-4 rounded-xl font-semibold text-lg text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-sm"
+                        className="w-full sm:w-auto justify-center px-6 py-3 rounded-xl font-semibold text-base text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-sm flex items-center gap-2"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -138,7 +138,7 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                   </div>
 
                   {/* Trust tags */}
-                  <div className="flex flex-wrap gap-3 mb-8">
+                  <div className="flex flex-wrap gap-3 mb-0">
                     {['IRDAI Approved', '100% Claim Support', 'No Hidden Charges'].map((t) => (
                       <span key={t} className="flex items-center gap-1.5 text-sm font-medium text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-full shadow-sm">
                         <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
@@ -150,8 +150,39 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
               </AnimatePresence>
             </div>
 
-            {/* Slider Controls (Fixed at bottom of left content) */}
-            <div className="flex items-center gap-6 mt-4 relative z-20">
+
+
+            {/* Stats bar on left */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm mt-4 w-full">
+              {stats.map((s) => (
+                <AnimatedStat key={s.label} stat={s} />
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT: Professional Framed Image Area */}
+          <div className="relative w-full flex flex-col justify-center lg:justify-end items-center lg:items-end">
+            <div className="relative w-full h-[500px] lg:h-[700px] max-w-lg lg:max-w-[650px] mb-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border-8 border-white bg-slate-100"
+                >
+                  <img 
+                    src={slides[currentSlide].image} 
+                    alt="Insurance Planning" 
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Slider Controls (Moved to right side under image) */}
+            <div className="flex items-center justify-center lg:justify-end gap-6 w-full max-w-lg lg:max-w-[650px] relative z-20">
               <div className="flex gap-2">
                 {slides.map((_, idx) => (
                   <button 
@@ -170,35 +201,6 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
-            </div>
-
-            {/* Stats bar on left */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm mt-12 w-full">
-              {stats.map((s) => (
-                <AnimatedStat key={s.label} stat={s} />
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT: Professional Framed Image Area */}
-          <div className="relative w-full h-[500px] lg:h-[700px] w-full flex justify-center lg:justify-end items-center">
-            <div className="relative w-full h-full max-w-lg lg:max-w-[650px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border-8 border-white bg-slate-100"
-                >
-                  <img 
-                    src={slides[currentSlide].image} 
-                    alt="Insurance Planning" 
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              </AnimatePresence>
             </div>
           </div>
 
