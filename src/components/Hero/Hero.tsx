@@ -154,35 +154,7 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                 className="w-full h-auto max-h-[500px] lg:max-h-[630px] object-contain drop-shadow-[0_20px_50px_rgba(245,158,11,0.25)] origin-bottom relative z-10" 
               />
 
-              {/* Decorative floating badge 1 */}
-              <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/4 -left-4 md:-left-8 bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl shadow-xl border border-white z-20 flex items-center gap-3"
-              >
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
-                  <ShieldCheck className="w-5 h-5 md:w-6 md:h-6" />
-                </div>
-                <div>
-                  <p className="text-[11px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">Protected Future</p>
-                  <p className="text-sm md:text-base text-slate-900 font-bold">100% Guaranteed</p>
-                </div>
-              </motion.div>
 
-              {/* Decorative floating badge 2 */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-1/4 -right-2 md:-right-6 bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-2xl shadow-xl border border-white z-20 flex items-center gap-3"
-              >
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-500 shrink-0">
-                  <Star className="w-5 h-5 md:w-6 md:h-6 fill-amber-500" />
-                </div>
-                <div>
-                  <p className="text-[11px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">Top Rated</p>
-                  <p className="text-sm md:text-base text-slate-900 font-bold">Child Plans</p>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
