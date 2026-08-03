@@ -97,26 +97,26 @@ const Founder = ({ onOpenModal }: { onOpenModal?: () => void }) => (
             ))}
           </div>
           
-          <div className="flex flex-wrap gap-4">
-            <button onClick={onOpenModal}>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <Link to="calculator" smooth duration={500} className="w-full sm:w-auto">
               <motion.button 
-                className="py-4 px-8 rounded-2xl font-bold text-white bg-gradient-to-r from-amber-400 to-amber-600 shadow-lg shadow-amber-500/30 text-[16px]"
+                className="w-full py-3 px-8 rounded-2xl font-bold text-slate-700 bg-white border-2 border-slate-200 hover:border-amber-500 hover:text-amber-500 transition-colors text-[16px]"
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                Use Calculator
+              </motion.button>
+            </Link>
+            <button onClick={onOpenModal} className="w-full sm:w-auto">
+              <motion.button 
+                className="w-full py-3 px-8 rounded-2xl font-bold text-white bg-gradient-to-r from-amber-400 to-amber-600 shadow-lg shadow-amber-500/30 text-[16px]"
                 whileHover={{ scale: 1.04, y: -1, boxShadow: '0 12px 30px rgba(59,130,246,0.4)' }} whileTap={{ scale: 0.97 }}>
                 Book Free Consultation
               </motion.button>
             </button>
             <motion.a href="tel:+919876543210" 
-              className="py-4 px-8 rounded-2xl font-bold text-amber-500 bg-orange-50 border-2 border-orange-200 hover:bg-orange-200 hover:border-orange-200 transition-colors text-[16px] flex items-center gap-2"
+              className="w-full sm:w-auto py-3 px-8 rounded-2xl font-bold text-amber-500 bg-orange-50 border-2 border-orange-200 hover:bg-orange-200 hover:border-orange-200 transition-colors text-[16px] flex items-center justify-center gap-2"
               whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
               <Phone className="w-5 h-5" /> Call Now
             </motion.a>
-            <Link to="calculator" smooth duration={500}>
-              <motion.button 
-                className="py-4 px-8 rounded-2xl font-bold text-slate-700 bg-white border-2 border-slate-200 hover:border-amber-500 hover:text-amber-500 transition-colors text-[16px]"
-                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                Use Calculator
-              </motion.button>
-            </Link>
           </div>
         </motion.div>
       </div>
