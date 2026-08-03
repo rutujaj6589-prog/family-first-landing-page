@@ -41,7 +41,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link to="hero" smooth duration={500} className="cursor-pointer">
+          <Link to="hero" smooth duration={500} className={`cursor-pointer transition-opacity duration-300 ${mobileOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <FamilyFirstLogo light={false} size="sm" />
             </motion.div>
@@ -107,6 +107,9 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
               onClick={(e) => e.stopPropagation()}
               className="absolute right-0 top-0 h-full w-4/5 max-w-sm bg-white shadow-2xl flex flex-col pt-24 px-6 pb-8"
             >
+              <div className="mb-6 -mt-2">
+                <FamilyFirstLogo light={false} size="sm" />
+              </div>
 
 
               <nav className="flex-1 flex flex-col gap-1">
