@@ -13,6 +13,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
   const [form, setForm] = useState<FormState>({ name: '', phone: '', email: '', childAge: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -103,13 +104,34 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                     </div>
                   ))}
                   
+                  {/* Custom Dropdown for Child's Age */}
                   <div className="relative">
-                    <select value={form.childAge} onChange={(e) => setForm(p => ({ ...p, childAge: e.target.value }))}
-                      className={`w-full py-3.5 px-4 rounded-2xl bg-white border border-slate-200 text-[16px] outline-none transition-all focus:border-amber-400 focus:bg-amber-50/30 appearance-none shadow-sm ${form.childAge ? 'text-slate-900' : 'text-slate-400'}`}>
-                      <option value="" disabled className="text-slate-400">Child's Current Age</option>
-                      {[...Array(18)].map((_, i) => <option key={i} value={i} className="text-slate-900">{i === 0 ? 'Newborn' : `${i} year${i > 1 ? 's' : ''} old`}</option>)}
-                    </select>
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">▼</div>
+                    <div 
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className={`w-full py-3.5 px-4 rounded-2xl bg-white border border-slate-200 text-[16px] outline-none transition-all cursor-pointer shadow-sm flex items-center justify-between ${isDropdownOpen ? 'border-amber-400 bg-amber-50/30' : ''} ${form.childAge ? 'text-slate-900' : 'text-slate-400'}`}
+                    >
+                      <span>{form.childAge !== '' ? (form.childAge === '0' ? 'Newborn' : `${form.childAge} year${Number(form.childAge) > 1 ? 's' : ''} old`) : "Child's Current Age"}</span>
+                      <motion.div animate={{ rotate: isDropdownOpen ? 180 : 0 }}>▼</motion.div>
+                    </div>
+                    
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
+                          className="absolute top-full left-0 w-full mt-2 bg-white border border-slate-200 rounded-2xl shadow-xl z-[60] max-h-56 overflow-y-auto"
+                        >
+                          {[...Array(18)].map((_, i) => (
+                            <div 
+                              key={i} 
+                              onClick={() => { setForm(p => ({ ...p, childAge: i.toString() })); setIsDropdownOpen(false); }}
+                              className="px-4 py-3 hover:bg-amber-50 cursor-pointer text-slate-700 transition-colors"
+                            >
+                              {i === 0 ? 'Newborn' : `${i} year${i > 1 ? 's' : ''} old`}
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                   
                   <textarea placeholder="Any specific questions? (Optional)" value={form.message} onChange={(e) => setForm(p => ({ ...p, message: e.target.value }))} rows={3}
