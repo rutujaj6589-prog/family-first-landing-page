@@ -1,5 +1,5 @@
 import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
-import { CheckCircle, Award, Star } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { useRef, useEffect, useState } from 'react';
 
@@ -10,12 +10,6 @@ const stats: Stat[] = [
   { end: 98, suffix: '%', label: 'Claims Settled', prefix: '' },
   { end: 500, suffix: 'Cr+', label: 'Coverage', prefix: '₹' },
   { end: 18, suffix: '+', label: 'Years Exp.', prefix: '' },
-];
-
-const floatingCards = [
-  { icon: <CheckCircle className="w-4 h-4 text-white" />, text: 'Tax Free Returns', top: '-16px', right: '16px', left: 'auto', bottom: 'auto' },
-  { icon: <Award className="w-4 h-4 text-white" />, text: 'IRDAI Certified', top: '35%', left: '-20px', right: 'auto', bottom: 'auto' },
-  { icon: <Star className="w-4 h-4 text-white" />, text: '5-Star Rated', bottom: '-16px', right: '24px', top: 'auto', left: 'auto' },
 ];
 
 const AnimatedStat = ({ stat }: { stat: Stat }) => {

@@ -70,7 +70,9 @@ const Founder = ({ onOpenModal }: { onOpenModal?: () => void }) => (
 
         {/* Right content */}
         <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-          <p className="text-amber-500 font-bold text-[15px] uppercase tracking-widest mb-3">A Message from Rajesh</p>
+          <p className="text-amber-500 font-bold text-[15px] uppercase tracking-widest mb-3 flex items-center gap-2">
+            <Users className="w-5 h-5" /> A Message from Rajesh
+          </p>
           <h3 className="font-serif font-extrabold text-slate-900 text-3xl md:text-4xl leading-[1.25] mb-8">
             "I Started This Because Families Shouldn't Struggle to Fund Their Children's Dreams"
           </h3>
@@ -108,6 +110,13 @@ const Founder = ({ onOpenModal }: { onOpenModal?: () => void }) => (
               whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
               <Phone className="w-5 h-5" /> Call Now
             </motion.a>
+            <Link to="calculator" smooth duration={500}>
+              <motion.button 
+                className="py-4 px-8 rounded-2xl font-bold text-slate-700 bg-white border-2 border-slate-200 hover:border-amber-500 hover:text-amber-500 transition-colors text-[16px]"
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                Use Calculator
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </div>
