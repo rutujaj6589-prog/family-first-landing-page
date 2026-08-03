@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { BookOpen, TrendingUp, PiggyBank, GraduationCap, Briefcase } from 'lucide-react';
 
 const steps = [
-  { icon: <BookOpen className="w-5 h-5 text-white" />, year: 'Today', title: 'Start Your Plan', description: 'Enroll in Education Planning Insurance. Choose your coverage & monthly investment.', colorClass: 'text-amber-500', bgClass: 'bg-gradient-to-br from-orange-200 to-amber-500', borderClass: 'border-orange-200' },
+  { icon: <BookOpen className="w-5 h-5 text-white" />, year: 'Today', title: 'Start Your Plan', description: 'Enroll in Education Planning Insurance. Choose your coverage & monthly investment.', colorClass: 'text-blue-500', bgClass: 'bg-gradient-to-br from-blue-400 to-blue-600', borderClass: 'border-blue-400' },
   { icon: <TrendingUp className="w-5 h-5 text-white" />, year: 'Year 1–5', title: 'Smart Investment', description: 'Premiums are invested in equity & debt funds for optimal, inflation-beating growth.', colorClass: 'text-amber-500', bgClass: 'bg-gradient-to-br from-orange-200 to-amber-500', borderClass: 'border-orange-200' },
   { icon: <PiggyBank className="w-5 h-5 text-white" />, year: 'Year 5–12', title: 'Corpus Growth', description: 'Compounding works its magic. Your corpus grows 3–4x faster than education inflation.', colorClass: 'text-emerald-600', bgClass: 'bg-gradient-to-br from-emerald-500 to-emerald-700', borderClass: 'border-emerald-500' },
   { icon: <GraduationCap className="w-5 h-5 text-white" />, year: 'Year 12–16', title: 'College Ready', description: 'Your child gets into their dream college. Funds released seamlessly to pay all fees.', colorClass: 'text-rose-600', bgClass: 'bg-gradient-to-br from-rose-500 to-rose-700', borderClass: 'border-rose-500' },
