@@ -151,7 +151,7 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                 alt="Family" 
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-auto max-h-[500px] lg:max-h-[630px] object-cover rounded-[2rem] shadow-xl drop-shadow-[0_20px_50px_rgba(245,158,11,0.25)] origin-bottom relative z-10" 
+                className="w-full h-auto max-h-[500px] lg:max-h-[630px] object-contain drop-shadow-[0_20px_50px_rgba(245,158,11,0.25)] origin-bottom relative z-10" 
               />
 
 
