@@ -1,5 +1,5 @@
 import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
-import { CheckCircle, ShieldCheck, Star } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { useRef, useEffect, useState } from 'react';
 
