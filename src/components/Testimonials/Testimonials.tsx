@@ -15,7 +15,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => (
-  <section id="testimonials" className="py-12 bg-gradient-to-b from-[#fffdf0] via-orange-50/30 to-[#fffdf0] relative overflow-hidden">
+  <section id="testimonials" className="pt-12 pb-2 bg-gradient-to-b from-[#fffdf0] via-orange-50/30 to-[#fffdf0] relative overflow-hidden">
     <div className="absolute top-0 right-[25%] w-[400px] h-[400px] rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
     <div className="absolute bottom-0 left-[25%] w-[350px] h-[350px] rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
 
@@ -85,7 +85,7 @@ const Testimonials = () => (
             </SwiperSlide>
           ))}
           
-          <div className="swiper-pagination-custom flex justify-center gap-2 mt-8" />
+          <div className="swiper-pagination-custom flex justify-center gap-2 mt-4" />
         </Swiper>
       </motion.div>
     </div>
