@@ -44,28 +44,28 @@ const slides = [
     id: 1,
     badge: "Education Planning Insurance",
     title: (
-      <>Secure Your Child's <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-300">Dream Education</span> Before Tomorrow Arrives</>
+      <>Secure Your Child's <span className="text-amber-600">Dream Education</span> Before Tomorrow Arrives</>
     ),
     description: "Don't let inflation steal your child's future. Our Education Planning Insurance ensures your child reaches their dream college — no matter what life brings.",
-    image: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 2,
     badge: "Wealth Creation Strategy",
     title: (
-      <>Start Early, Build a <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-300">Massive Corpus</span> For Their Future</>
+      <>Start Early, Build a <span className="text-amber-600">Massive Corpus</span> For Their Future</>
     ),
     description: "Harness the power of compounding. Small, disciplined investments today can create a multi-crore fund for your child's higher education and marriage.",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 3,
     badge: "100% Secure & Guaranteed",
     title: (
-      <>Zero Market Risk, <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-300">Guaranteed Returns</span> & Protection</>
+      <>Zero Market Risk, <span className="text-amber-600">Guaranteed Returns</span> & Protection</>
     ),
     description: "Sleep peacefully knowing your child's education fund is 100% safe from market volatility, backed by IRDAI approved guaranteed return plans.",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   }
 ];
 
@@ -83,138 +83,126 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative bg-[#fffdf0] overflow-hidden pt-32 pb-16">
       
-      {/* Background Image Slider */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="absolute inset-0"
-          >
-            <img 
-              src={slides[currentSlide].image} 
-              alt="Background" 
-              className="w-full h-full object-cover"
-            />
-            {/* Dark gradient overlay for text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/40" />
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      <div className="relative z-10 w-full pt-32 pb-48 lg:pb-32 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
           
-          {/* Main Content Area (Left aligned on desktop, centered on mobile) */}
-          <div className="w-full max-w-3xl flex flex-col items-start text-left">
-            
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlide}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 backdrop-blur border border-slate-700 mb-6">
-                  <motion.span 
-                    className="w-2 h-2 rounded-full bg-amber-400 block"
-                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }} 
-                    transition={{ duration: 1.5, repeat: Infinity }} 
-                  />
-                  <span className="text-amber-300 text-sm font-semibold tracking-wide uppercase">{slides[currentSlide].badge}</span>
-                </div>
+          {/* LEFT: Content Area */}
+          <div className="flex flex-col items-start text-left w-full">
+            <div className="relative w-full">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100/50 border border-amber-200 mb-6">
+                    <span className="text-amber-700 text-sm font-semibold uppercase tracking-wider">{slides[currentSlide].badge}</span>
+                  </div>
 
-                {/* Heading */}
-                <h1 className="font-serif font-extrabold text-white leading-[1.15] mb-6 text-4xl md:text-5xl lg:text-6xl min-h-[140px] md:min-h-[120px] drop-shadow-md">
-                  {slides[currentSlide].title}
-                </h1>
+                  {/* Heading */}
+                  <h1 className="font-serif font-extrabold text-slate-900 leading-[1.15] mb-6 text-4xl md:text-5xl lg:text-6xl min-h-[140px] md:min-h-[160px] lg:min-h-[180px]">
+                    {slides[currentSlide].title}
+                  </h1>
 
-                {/* Description */}
-                <p className="text-slate-200 text-lg md:text-xl leading-relaxed mb-8 max-w-xl min-h-[80px] drop-shadow">
-                  {slides[currentSlide].description}
-                </p>
+                  {/* Description */}
+                  <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 max-w-xl min-h-[80px]">
+                    {slides[currentSlide].description}
+                  </p>
 
-                {/* Buttons */}
-                <div className="flex flex-wrap gap-4 mb-10">
-                  <motion.button
-                    onClick={onOpenModal}
-                    className="px-8 py-4 rounded-2xl font-bold text-lg text-slate-900 bg-gradient-to-r from-amber-300 to-amber-500 shadow-lg shadow-amber-500/20 flex items-center gap-2"
-                    whileHover={{ scale: 1.05, y: -2, boxShadow: '0 12px 40px rgba(245,158,11,0.4)' }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    Book Free Consultation
-                    <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.2, repeat: Infinity }}>→</motion.span>
-                  </motion.button>
-                  <Link to="calculator" smooth duration={500}>
+                  {/* Buttons */}
+                  <div className="flex flex-wrap gap-4 mb-10">
                     <motion.button
-                      className="px-8 py-4 rounded-2xl font-semibold text-lg text-white bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all shadow-sm"
-                      whileHover={{ scale: 1.04 }}
-                      whileTap={{ scale: 0.97 }}
+                      onClick={onOpenModal}
+                      className="px-8 py-4 rounded-xl font-bold text-lg text-white bg-gradient-to-r from-amber-400 to-amber-600 shadow-md shadow-amber-500/20 hover:from-amber-500 hover:to-amber-700 transition-all flex items-center gap-2"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      Calculate Education Cost
+                      Book Free Consultation
+                      <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
                     </motion.button>
-                  </Link>
-                </div>
+                    <Link to="calculator" smooth duration={500}>
+                      <motion.button
+                        className="px-8 py-4 rounded-xl font-semibold text-lg text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-sm"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Calculate Education Cost
+                      </motion.button>
+                    </Link>
+                  </div>
 
-                {/* Trust tags */}
-                <div className="flex flex-wrap gap-3 mb-12">
-                  {['IRDAI Approved', '100% Claim Support', 'No Hidden Charges'].map((t) => (
-                    <span key={t} className="flex items-center gap-1.5 text-sm font-medium text-slate-200 bg-slate-900/40 backdrop-blur border border-slate-700/50 px-3 py-1.5 rounded-full shadow-sm">
-                      <CheckCircle className="w-4 h-4 text-green-400 shrink-0" />
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                  {/* Trust tags */}
+                  <div className="flex flex-wrap gap-3 mb-8">
+                    {['IRDAI Approved', '100% Claim Support', 'No Hidden Charges'].map((t) => (
+                      <span key={t} className="flex items-center gap-1.5 text-sm font-medium text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-full shadow-sm">
+                        <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-            {/* Slider Controls */}
-            <div className="flex items-center gap-6 mt-2 relative z-20">
+            {/* Slider Controls (Fixed at bottom of left content) */}
+            <div className="flex items-center gap-6 mt-4 relative z-20">
               <div className="flex gap-2">
                 {slides.map((_, idx) => (
                   <button 
                     key={idx}
                     onClick={() => setCurrentSlide(idx)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'w-10 bg-amber-400' : 'w-2.5 bg-white/30 hover:bg-white/50'}`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentSlide ? 'w-10 bg-slate-800' : 'w-2.5 bg-slate-300 hover:bg-slate-400'}`}
                     aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
               </div>
-              <div className="flex gap-3">
-                <button onClick={prevSlide} className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/50 backdrop-blur border border-slate-700 text-white hover:bg-slate-800 transition-all" aria-label="Previous slide">
+              <div className="flex gap-2">
+                <button onClick={prevSlide} className="w-10 h-10 rounded-full flex items-center justify-center bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 shadow-sm transition-all" aria-label="Previous slide">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button onClick={nextSlide} className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/50 backdrop-blur border border-slate-700 text-white hover:bg-slate-800 transition-all" aria-label="Next slide">
+                <button onClick={nextSlide} className="w-10 h-10 rounded-full flex items-center justify-center bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 shadow-sm transition-all" aria-label="Next slide">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
+            {/* Stats bar on left */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm mt-12 w-full">
+              {stats.map((s) => (
+                <AnimatedStat key={s.label} stat={s} />
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Stats bar floating at bottom */}
-      <div className="absolute bottom-6 left-0 right-0 z-30 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 bg-white/95 backdrop-blur-xl rounded-2xl p-5 border border-slate-200 shadow-2xl"
-          >
-            {stats.map((s) => (
-              <AnimatedStat key={s.label} stat={s} />
-            ))}
-          </motion.div>
-        </div>
-      </div>
+          {/* RIGHT: Professional Framed Image Area */}
+          <div className="relative w-full h-[400px] lg:h-[550px] w-full flex justify-center lg:justify-end items-center">
+            <div className="relative w-full h-full max-w-lg lg:max-w-xl">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] border-8 border-white bg-slate-100"
+                >
+                  <img 
+                    src={slides[currentSlide].image} 
+                    alt="Insurance Planning" 
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
 
+      </div>
     </section>
   );
 };
