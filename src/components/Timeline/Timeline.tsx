@@ -10,13 +10,13 @@ const steps = [
 ];
 
 const Timeline = () => (
-  <section id="timeline" className="py-24 bg-gradient-to-b from-[#fffdf0] via-orange-50/30 to-[#fffdf0] relative overflow-hidden">
+  <section id="timeline" className="py-12 bg-gradient-to-b from-[#fffdf0] via-orange-50/30 to-[#fffdf0] relative overflow-hidden">
     <div className="absolute top-0 right-[20%] w-[400px] h-[400px] rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
     <div className="absolute bottom-0 left-[20%] w-[350px] h-[350px] rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
 
     <div className="max-w-7xl mx-auto px-6 relative z-10">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-amber-500 text-sm font-bold mb-4">
+        <span className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-md shadow-amber-500/20 text-base font-bold mb-4">
           Your Journey
         </span>
         <h2 className="font-serif font-extrabold text-slate-900 mb-4 text-3xl md:text-4xl lg:text-5xl">

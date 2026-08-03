@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Shield, Phone, Mail, MapPin, Share2, MessageSquare, Film, Send, AtSign, ArrowRight } from 'lucide-react';
 import { Link } from 'react-scroll';
+import FamilyFirstLogo from '../common/Logo';
 
 const cols = {
   product: [{ l: 'Education Plan', h: '#' }, { l: 'Child ULIP', h: '#' }, { l: 'Term Insurance', h: '#' }, { l: 'Health Insurance', h: '#' }, { l: 'Premium Calculator', h: '#' }],
@@ -18,7 +19,7 @@ const socials = [
 
 const Footer = () => (
   <footer className="bg-slate-950 text-slate-300 relative overflow-hidden">
-    <div className="h-1 w-full bg-gradient-to-r from-amber-500 via-amber-500 to-orange-200" />
+    <div className="h-1 w-full bg-gradient-to-r from-amber-500 via-amber-500 to-orange-200 relative z-30" />
 
     {/* Newsletter */}
     <div className="bg-slate-900 border-b border-slate-800 py-10">
@@ -45,22 +46,14 @@ const Footer = () => (
         {/* Brand */}
         <div className="lg:col-span-2 md:pr-10">
           <Link to="hero" smooth duration={500} className="cursor-pointer inline-block mb-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="font-serif font-bold text-lg text-white leading-tight">Family First Insurance</p>
-                <p className="text-[10px] text-amber-500 tracking-[0.2em] uppercase font-bold mt-0.5">Securing Futures Since 2006</p>
-              </div>
-            </div>
+            <FamilyFirstLogo light={false} size="sm" />
           </Link>
           <p className="text-slate-400 text-[15px] leading-relaxed mb-6">India's most trusted education planning insurance provider. IRDAI certified, award-winning, and committed to securing your child's future.</p>
           <div className="flex flex-col gap-3 mb-6">
             {[
-              { icon: <Phone className="w-4 h-4" />, text: '+91 98765 43210', href: 'tel:+919876543210' },
+              { icon: <Phone className="w-4 h-4" />, text: '1800-209-1234', href: 'tel:18002091234' },
               { icon: <Mail className="w-4 h-4" />, text: 'hello@familyfirstinsurance.in', href: 'mailto:hello@familyfirstinsurance.in' },
-              { icon: <MapPin className="w-4 h-4" />, text: 'Mumbai | Delhi | Bangalore', href: '#' },
+              { icon: <MapPin className="w-4 h-4" />, text: 'Sangli', href: '#' },
             ].map((c) => (
               <a key={c.text} href={c.href} className="flex items-center gap-2.5 text-slate-400 hover:text-white transition-colors text-[15px]">
                 <span className="text-orange-200">{c.icon}</span>{c.text}

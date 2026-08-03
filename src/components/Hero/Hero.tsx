@@ -149,7 +149,7 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
           >
             <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl flex justify-center lg:justify-end">
               <img 
-                src="/founder.png" 
+                src={`${import.meta.env.BASE_URL}founder.png`}
                 alt="Founder" 
                 className="w-full h-auto max-h-[600px] lg:max-h-[700px] object-contain drop-shadow-2xl scale-110 origin-bottom" 
               />

@@ -51,7 +51,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <Link key={item.to} to={item.to} smooth duration={500} offset={-80} className="cursor-pointer">
-                <span className="block px-4 py-2 rounded-xl text-[15px] font-medium text-slate-600 hover:bg-slate-50 hover:text-amber-500 transition-colors">
+                <span className="block px-4 py-2 rounded-xl text-[17px] font-bold text-slate-600 hover:bg-slate-50 hover:text-amber-500 transition-colors">
                   {item.label}
                 </span>
               </Link>
@@ -115,7 +115,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                 {navItems.map((item, i) => (
                   <motion.div key={item.to} initial={{ x: 30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.06 }}>
                     <Link to={item.to} smooth duration={500} offset={-80} onClick={() => setMobileOpen(false)} className="cursor-pointer block">
-                      <div className="px-4 py-3 rounded-xl text-slate-700 font-semibold text-base hover:bg-slate-50 hover:text-amber-500 transition-colors">
+                      <div className="px-4 py-3 rounded-xl text-slate-700 font-bold text-lg hover:bg-slate-50 hover:text-amber-500 transition-colors">
                         {item.label}
                       </div>
                     </Link>

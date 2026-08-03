@@ -13,12 +13,12 @@ const benefits = [
 ];
 
 const Benefits = () => (
-  <section id="benefits" className="py-24 bg-[#fffdf0] relative overflow-hidden">
+  <section id="benefits" className="py-12 bg-[#fffdf0] relative overflow-hidden">
     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-amber-500 to-amber-500" />
 
     <div className="max-w-7xl mx-auto px-6 relative z-10">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-orange-200 text-amber-500 text-sm font-bold mb-4">
+        <span className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-md shadow-amber-500/20 text-base font-bold mb-4">
           Why Choose Us
         </span>
         <h2 className="font-serif font-extrabold text-slate-900 mb-4 text-3xl md:text-4xl lg:text-5xl">
@@ -38,7 +38,7 @@ const Benefits = () => (
             key={b.title}
             initial={{ opacity: 0, y: 30, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
             whileHover={{ y: -6 }}
-            className="p-6 rounded-[20px] bg-white border border-slate-200 hover:border-orange-200 hover:shadow-xl hover:shadow-slate-200/50 transition-all cursor-default relative overflow-hidden group"
+            className="p-6 rounded-[20px] bg-white border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl hover:shadow-amber-500/10 transition-all cursor-default relative overflow-hidden group"
           >
             <motion.div
               className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${b.bgClass}`}

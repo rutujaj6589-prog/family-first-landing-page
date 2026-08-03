@@ -16,7 +16,7 @@ const faqs = [
 const FAQItem = ({ faq, isOpen, onToggle }: { faq: typeof faqs[0]; isOpen: boolean; onToggle: () => void }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+    className={`rounded-2xl border-2 transition-all duration-300 overflow-hidden ${
       isOpen 
         ? 'bg-orange-50 border-orange-200 shadow-lg shadow-amber-500/5' 
         : 'bg-white border-slate-200 hover:border-orange-200'
@@ -52,12 +52,14 @@ const FAQ = () => {
   const [openId, setOpenId] = useState<number | null>(1);
 
   return (
-    <section id="faq" className="py-24 bg-[#fffdf0] relative overflow-hidden border-y border-slate-100">
+    <section id="faq" className="py-12 bg-[#fffdf0] relative overflow-hidden border-y border-slate-100">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(139,92,246,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-3xl mx-auto px-6 relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-amber-500 text-sm font-bold mb-4">Got Questions?</span>
+          <span className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 to-amber-500 text-white shadow-md shadow-orange-500/20 text-base font-bold mb-4">
+          Have Questions?
+        </span>
           <h2 className="font-serif font-extrabold text-slate-900 mb-4 text-3xl md:text-4xl lg:text-5xl">
             Frequently Asked{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Questions</span>
@@ -85,6 +87,7 @@ const FAQ = () => {
           </div>
         </motion.div>
       </div>
+      
     </section>
   );
 };

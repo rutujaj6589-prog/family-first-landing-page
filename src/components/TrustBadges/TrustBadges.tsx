@@ -11,11 +11,11 @@ const badges = [
 ];
 
 const TrustBadges = () => (
-  <section className="py-12 bg-[#fffdf0] border-y border-slate-100">
+  <section className="py-12 bg-[#fffdf0] border-y border-slate-100 relative">
     <div className="max-w-7xl mx-auto px-6">
       <motion.p
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-center text-slate-400 text-xs tracking-[0.2em] uppercase font-bold mb-8"
+        className="text-center text-slate-500 text-[13px] tracking-[0.2em] uppercase font-black mb-8"
       >
         Trusted & Certified Since 2006
       </motion.p>

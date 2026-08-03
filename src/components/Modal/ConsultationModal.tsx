@@ -56,11 +56,11 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-800 rounded-3xl shadow-2xl shadow-black/50"
+            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#fffdf0] border border-slate-200 rounded-3xl shadow-2xl shadow-amber-900/10"
           >
             <button 
               onClick={handleClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors z-10"
+              className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 hover:bg-slate-200 transition-colors z-10"
             >
               <X className="w-5 h-5" />
             </button>
@@ -71,9 +71,9 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                   animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
                   <CheckCircle className="w-10 h-10 text-white" />
                 </motion.div>
-                <h3 className="font-serif font-extrabold text-white text-3xl mb-3">You're All Set! 🎉</h3>
-                <p className="text-slate-300 text-lg mb-2">Thank you, <strong className="text-white">{form.name}</strong>!</p>
-                <p className="text-slate-400 text-[16px]">Our advisor will call you within 2 hours to schedule your free consultation.</p>
+                <h3 className="font-serif font-extrabold text-slate-900 text-3xl mb-3">You're All Set! 🎉</h3>
+                <p className="text-slate-700 text-lg mb-2">Thank you, <strong className="text-slate-900">{form.name}</strong>!</p>
+                <p className="text-slate-600 text-[16px]">Our advisor will call you within 2 hours to schedule your free consultation.</p>
                 
                 <button 
                   onClick={handleClose}
@@ -84,8 +84,8 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
               </div>
             ) : (
               <div className="p-8 md:p-10">
-                <h3 className="font-serif font-extrabold text-white text-2xl md:text-3xl mb-2">Book Your Free Consultation</h3>
-                <p className="text-slate-400 mb-8">Secure your child's education with expert planning.</p>
+                <h3 className="font-serif font-extrabold text-slate-900 text-2xl md:text-3xl mb-2">Book Your Free Consultation</h3>
+                <p className="text-slate-600 mb-8">Secure your child's education with expert planning.</p>
                 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   {[
@@ -98,22 +98,22 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                       <input type={field.type} required={field.required} placeholder={field.placeholder}
                         value={form[field.key as keyof FormState]}
                         onChange={(e) => setForm(p => ({ ...p, [field.key]: e.target.value }))}
-                        className="w-full py-3.5 pr-4 pl-12 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-[16px] outline-none transition-all focus:border-amber-500 focus:bg-white/10"
+                        className="w-full py-3.5 pr-4 pl-12 rounded-2xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-[16px] outline-none transition-all focus:border-amber-400 focus:bg-amber-50/30 shadow-sm"
                       />
                     </div>
                   ))}
                   
                   <div className="relative">
                     <select value={form.childAge} onChange={(e) => setForm(p => ({ ...p, childAge: e.target.value }))}
-                      className={`w-full py-3.5 px-4 rounded-2xl bg-white/5 border border-white/10 text-[16px] outline-none transition-all focus:border-amber-500 focus:bg-white/10 appearance-none ${form.childAge ? 'text-white' : 'text-slate-500'}`}>
-                      <option value="" disabled className="text-slate-900">Child's Current Age</option>
+                      className={`w-full py-3.5 px-4 rounded-2xl bg-white border border-slate-200 text-[16px] outline-none transition-all focus:border-amber-400 focus:bg-amber-50/30 appearance-none shadow-sm ${form.childAge ? 'text-slate-900' : 'text-slate-400'}`}>
+                      <option value="" disabled className="text-slate-400">Child's Current Age</option>
                       {[...Array(18)].map((_, i) => <option key={i} value={i} className="text-slate-900">{i === 0 ? 'Newborn' : `${i} year${i > 1 ? 's' : ''} old`}</option>)}
                     </select>
                     <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">▼</div>
                   </div>
                   
                   <textarea placeholder="Any specific questions? (Optional)" value={form.message} onChange={(e) => setForm(p => ({ ...p, message: e.target.value }))} rows={3}
-                    className="w-full py-3.5 px-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-[16px] outline-none transition-all focus:border-amber-500 focus:bg-white/10 resize-none" />
+                    className="w-full py-3.5 px-4 rounded-2xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-[16px] outline-none transition-all focus:border-amber-400 focus:bg-amber-50/30 resize-none shadow-sm" />
                   
                   <motion.button type="submit" disabled={loading}
                     className="mt-2 py-4 rounded-2xl font-bold text-[17px] text-white bg-gradient-to-r from-amber-400 to-amber-600 shadow-lg shadow-orange-200/30 flex items-center justify-center gap-2"
@@ -125,7 +125,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
                       <><Send className="w-5 h-5" /> Book My Free Consultation</>
                     )}
                   </motion.button>
-                  <p className="text-slate-400 text-sm text-center mt-2">🔒 Your data is 100% secure. No spam, ever.</p>
+                  <p className="text-slate-500 text-sm text-center mt-2">🔒 Your data is 100% secure. No spam, ever.</p>
                 </form>
               </div>
             )}

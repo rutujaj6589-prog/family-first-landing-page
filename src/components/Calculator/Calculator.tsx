@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  IndianRupee, TrendingUp, Target, AlertCircle,
+  IndianRupee, AlertCircle,
   CheckCircle2, Calculator as CalcIcon, ChevronRight,
-  Sparkles, Clock, PiggyBank
+  Sparkles, Clock
 } from 'lucide-react';
-import { Link } from 'react-scroll';
 
 interface FormData {
   childAge: number;
@@ -113,19 +112,12 @@ const Calculator = ({ onOpenModal }: { onOpenModal?: () => void }) => {
   const years = form.targetAge - form.childAge;
 
   return (
-    <section id="calculator" className="pb-24 bg-[#fffdf0] relative overflow-hidden">
-      {/* Top wave from timeline */}
-      <div className="bg-white h-20 relative">
-        <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" className="absolute bottom-0 left-0 right-0 w-full h-20">
-          <path d="M0 80V30C360 80 720 0 1080 40C1260 60 1380 50 1440 40V80H0Z" fill="#ffffff" />
-        </svg>
-      </div>
-
+    <section id="calculator" className="py-12 bg-white relative overflow-hidden border-y border-slate-100">
       <div className="max-w-[1100px] mx-auto px-6">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-amber-500 text-sm font-bold mb-4">
-            <Sparkles className="w-4 h-4" /> Smart Calculator
+          <span className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-md shadow-amber-500/20 text-base font-bold mb-4">
+            Smart Calculator
           </span>
           <h2 className="font-serif font-extrabold text-slate-900 mb-4 text-3xl md:text-4xl lg:text-5xl">
             Education Cost{' '}
@@ -326,13 +318,11 @@ const Calculator = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                   </div>
                 </div>
 
-                {/* Calculate button */}
-                <div className="mt-10">
+                <div className="mt-10 flex justify-center">
                   <motion.button onClick={handleCalc}
-                    className="w-full py-4 rounded-[20px] font-extrabold text-[17px] text-white bg-gradient-to-r from-amber-500 via-amber-500 to-orange-200 shadow-xl shadow-amber-500/30 flex items-center justify-center gap-3 tracking-wide"
-                    whileHover={{ scale: 1.01, y: -2, boxShadow: '0 20px 40px -10px rgba(79,70,229,0.5)' }}
+                    className="px-8 py-3.5 rounded-[16px] font-bold text-[15px] text-white bg-gradient-to-r from-amber-500 via-amber-500 to-orange-200 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2 tracking-wide"
+                    whileHover={{ scale: 1.01, y: -2, boxShadow: '0 15px 30px -10px rgba(79,70,229,0.5)' }}
                     whileTap={{ scale: 0.98 }}>
-                    <PiggyBank className="w-6 h-6" />
                     Calculate My Education Fund
                     <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.2, repeat: Infinity }}>→</motion.span>
                   </motion.button>
@@ -391,7 +381,7 @@ const Calculator = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                       { label: 'Expected Maturity Value', value: fmt(result.maturityAmount), icon: '📈', colorClass: 'text-emerald-700', bgClass: 'bg-emerald-50', borderClass: 'border-emerald-100' },
                       { label: 'Return Multiple', value: `${result.multipler.toFixed(1)}x`, icon: '🚀', colorClass: 'text-purple-700', bgClass: 'bg-purple-50', borderClass: 'border-purple-100' },
                     ].map(c => (
-                      <div key={c.label} className={`p-4 md:p-5 rounded-2xl border ${c.bgClass} ${c.borderClass}`}>
+                      <div key={c.label} className={`p-4 md:p-5 rounded-2xl border-2 ${c.bgClass} ${c.borderClass}`}>
                         <div className="text-2xl mb-2">{c.icon}</div>
                         <p className="text-slate-500 text-[11px] md:text-xs font-bold uppercase tracking-wider mb-1 leading-tight">{c.label}</p>
                         <p className={`font-serif font-black text-xl md:text-2xl ${c.colorClass}`}>{c.value}</p>
@@ -407,7 +397,7 @@ const Calculator = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                         <p className="font-extrabold text-amber-500 text-lg md:text-xl">Coverage Gap: {fmt(result.gap)}</p>
                         <p className="text-amber-500 text-[15px] mt-1 leading-relaxed">
                           To fully cover the future cost, you need to invest{' '}
-                          <strong className="text-amber-500 font-black bg-amber-500/50 px-1 rounded">₹{Math.ceil(result.monthlyNeeded).toLocaleString('en-IN')}/month</strong>
+                          <strong className="text-amber-500 font-black">₹{Math.ceil(result.monthlyNeeded).toLocaleString('en-IN')}/month</strong>
                           {' '}instead of ₹{form.monthlyInvestment.toLocaleString('en-IN')}/month.
                         </p>
                       </div>
@@ -418,25 +408,24 @@ const Calculator = ({ onOpenModal }: { onOpenModal?: () => void }) => {
                       <div>
                         <p className="font-extrabold text-emerald-900 text-lg md:text-xl">🎉 Excellent! Your plan fully covers the future education cost!</p>
                         <p className="text-emerald-700 text-[15px] mt-1 leading-relaxed">
-                          You'll have a surplus of <strong className="text-emerald-900 font-black bg-emerald-200/50 px-1 rounded">{fmt(Math.abs(result.maturityAmount - result.futureCost))}</strong> — perfect financial planning!
+                          You'll have a surplus of <strong className="text-emerald-900 font-black">{fmt(Math.abs(result.maturityAmount - result.futureCost))}</strong> — perfect financial planning!
                         </p>
                       </div>
                     </div>
                   ))}
 
-                  {/* Action buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <button onClick={onOpenModal} className="flex-1">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
+                    <button onClick={onOpenModal}>
                       <motion.button 
-                        className="w-full py-4 rounded-2xl font-bold text-[16px] text-white bg-amber-500 shadow-lg shadow-amber-500/30 hover:bg-amber-500 transition-colors flex items-center justify-center gap-2"
+                        className="px-8 py-3.5 rounded-xl font-bold text-[15px] text-white bg-amber-500 shadow-lg shadow-amber-500/30 hover:bg-amber-500 transition-colors flex items-center justify-center gap-2"
                         whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                        <TrendingUp className="w-5 h-5" /> Get Personalized Plan — Free!
+                        Get Personalized Plan — Free!
                       </motion.button>
                     </button>
                     <motion.button onClick={handleReset}
-                      className="py-4 px-6 rounded-2xl font-bold text-[15px] text-slate-700 bg-slate-100 border border-slate-200 hover:bg-slate-200 transition-colors flex items-center justify-center gap-2"
+                      className="px-8 py-3.5 rounded-xl font-bold text-[15px] text-slate-700 bg-slate-100 border border-slate-200 hover:bg-slate-200 transition-colors flex items-center justify-center gap-2"
                       whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Target className="w-5 h-5" /> Recalculate
+                      Back
                     </motion.button>
                   </div>
                 </div>

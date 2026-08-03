@@ -4,18 +4,19 @@ import { Link } from 'react-scroll';
 
 const achievements = [
   { value: '18+', label: 'Years Experience', colorClass: 'text-amber-500', bgClass: 'bg-orange-50' },
+
   { value: '15K+', label: 'Families Secured', colorClass: 'text-amber-500', bgClass: 'bg-orange-50' },
   { value: '₹500Cr+', label: 'Total Coverage', colorClass: 'text-amber-500', bgClass: 'bg-orange-50' },
   { value: '98%', label: 'Claim Settlement', colorClass: 'text-amber-500', bgClass: 'bg-orange-50' },
 ];
 
 const Founder = ({ onOpenModal }: { onOpenModal?: () => void }) => (
-  <section id="founder" className="py-24 bg-[#fffdf0] relative overflow-hidden border-y border-slate-100">
+  <section id="founder" className="py-12 bg-[#fffdf0] relative overflow-hidden border-y border-slate-100">
     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08)_0%,transparent_70%)] pointer-events-none" />
 
     <div className="max-w-7xl mx-auto px-6 relative z-10">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-amber-500 text-sm font-bold mb-4">
+        <span className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-md shadow-amber-500/20 text-base font-bold mb-4">
           Our Story
         </span>
         <h2 className="font-serif font-extrabold text-slate-900 text-3xl md:text-4xl lg:text-5xl">
@@ -34,16 +35,12 @@ const Founder = ({ onOpenModal }: { onOpenModal?: () => void }) => (
             <div className="absolute -top-10 -right-10 w-[200px] h-[200px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.1)_0%,transparent_70%)]" />
             
             {/* Avatar */}
-            <div className="relative w-36 h-36 mx-auto mb-8">
+            <div className="relative w-40 h-40 mx-auto mb-10 mt-4">
               <div className="w-full h-full rounded-full border-4 border-white shadow-[0_0_0_8px_rgba(59,130,246,0.05),0_20px_40px_rgba(0,0,0,0.1)] overflow-hidden bg-slate-100 relative z-10">
-                <svg viewBox="0 0 140 140" className="w-full h-full" fill="none">
-                  <rect width="140" height="140" fill="#cbd5e1" />
-                  <circle cx="70" cy="52" r="27" fill="#94a3b8" />
-                  <ellipse cx="70" cy="115" rx="44" ry="34" fill="#64748b" />
-                </svg>
+                <img src={`${import.meta.env.BASE_URL}founder.png`} alt="Rajesh Kumar Sharma" className="w-full h-full object-cover object-top scale-[1.15] mt-1" />
               </div>
               <motion.div 
-                className="absolute -bottom-2 -right-2 bg-gradient-to-r from-amber-400 to-amber-600 text-white text-xs font-extrabold px-3 py-1.5 rounded-lg shadow-lg z-20"
+                className="absolute -bottom-3 -right-3 bg-gradient-to-r from-amber-400 to-amber-600 text-white text-sm font-extrabold px-4 py-2 rounded-xl shadow-lg z-20"
                 animate={{ y: [0, -4, 0] }} transition={{ duration: 2, repeat: Infinity }}
               >
                 18+ Yrs
