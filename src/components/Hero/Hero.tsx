@@ -128,7 +128,7 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
             {/* Stats bar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-              className="grid grid-cols-4 gap-2 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-2 bg-white rounded-2xl p-5 border border-slate-200 shadow-sm"
             >
               {stats.map((s) => (
                 <AnimatedStat key={s.label} stat={s} />
