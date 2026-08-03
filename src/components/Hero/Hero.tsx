@@ -145,14 +145,18 @@ const Hero = ({ onOpenModal }: { onOpenModal?: () => void }) => {
               {/* Glowing background blob */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-amber-300/30 to-orange-500/10 rounded-full blur-3xl -z-10" />
 
-              {/* Floating Image */}
-              <motion.img 
-                src={`${import.meta.env.BASE_URL}family.png`}
-                alt="Family" 
+              {/* Integrated Image Card */}
+              <motion.div 
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-auto max-h-[500px] lg:max-h-[630px] object-cover rounded-[2rem] shadow-xl drop-shadow-[0_20px_50px_rgba(245,158,11,0.25)] origin-bottom relative z-10" 
-              />
+                className="relative w-full max-w-[500px] lg:max-w-[630px] rounded-[2.5rem] bg-gradient-to-b from-white/60 to-white/20 backdrop-blur-xl border border-white/50 shadow-[0_30px_60px_-15px_rgba(245,158,11,0.3)] p-6 lg:p-8 z-10"
+              >
+                <img 
+                  src={`${import.meta.env.BASE_URL}family.png`}
+                  alt="Family" 
+                  className="w-full h-auto object-contain drop-shadow-xl" 
+                />
+              </motion.div>
 
 
             </div>
