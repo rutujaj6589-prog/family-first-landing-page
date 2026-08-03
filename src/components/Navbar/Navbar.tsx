@@ -107,9 +107,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal?: () => void }) => {
               onClick={(e) => e.stopPropagation()}
               className="absolute right-0 top-0 h-full w-4/5 max-w-sm bg-white shadow-2xl flex flex-col pt-24 px-6 pb-8"
             >
-              <div className="mb-6">
-                <FamilyFirstLogo light={false} size="sm" />
-              </div>
+
 
               <nav className="flex-1 flex flex-col gap-1">
                 {navItems.map((item, i) => (
